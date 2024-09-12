@@ -89,7 +89,7 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                             topRight: Radius.circular(12.0),
                           ), // To make sure image also has rounded corners
                           child: Image.network(
-                           "https://picsum.photos/id/119/200/300",
+                           "https://picsum.photos/id/180/200/300",
                             height: 100,
                             width: double.infinity, // Make the image full width
                             fit: BoxFit.fitWidth,
