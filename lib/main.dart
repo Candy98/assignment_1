@@ -93,7 +93,7 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                             height: 100,
                             width: double.infinity, // Make the image full width
                             fit: BoxFit.fitWidth,
-                          ),
+                          ),//R
                         ),
                         Padding(
                           padding: const EdgeInsets.all(12.0),
