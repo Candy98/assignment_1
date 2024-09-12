@@ -56,8 +56,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           children: [
             Center(
               child: Image.network(
-                product.imageUrl,
-                height: 200, // Adjust the height as needed
+                "https://picsum.photos/id/119/200/300",
+                height: 200,
+                width: double.infinity,// Adjust the height as needed
                 fit: BoxFit.cover,
               ),
             ),

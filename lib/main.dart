@@ -79,52 +79,60 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0), // Rounded corners
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Image.network(
-                              product.imageUrl,
-                              height: 100, // Fixed height for product image
-                              fit: BoxFit.contain,
-                            ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Image without padding
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12.0),
+                            topRight: Radius.circular(12.0),
+                          ), // To make sure image also has rounded corners
+                          child: Image.network(
+                           "https://picsum.photos/id/119/200/300",
+                            height: 100,
+                            width: double.infinity, // Make the image full width
+                            fit: BoxFit.fitWidth,
                           ),
-                          SizedBox(height: 12.0), // Space between image and text
-                          Text(
-                            product.name,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
-                            ),
-                            maxLines: 1, // Limit name to 1 line
-                            overflow: TextOverflow.ellipsis, // Ellipsis for overflow
-                          ),
-                          SizedBox(height: 8.0),
-                          Text(
-                            '\$${product.price.toStringAsFixed(2)}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.green,
-                            ),
-                          ),
-                          SizedBox(height: 8.0),
-                          Expanded(
-                            child: Text(
-                              product.description,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey[600],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 6.0), // Space between image and text
+                              Text(
+                                product.name,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
+                                ),
+                                maxLines: 2, // Limit name to 1 line
+                                overflow: TextOverflow.ellipsis, // Ellipsis for overflow
                               ),
-                              maxLines: 3, // Limit description to 3 lines
-                              overflow: TextOverflow.ellipsis, // Ellipsis for overflow
-                            ),
+                              SizedBox(height:4.0),
+                              Text(
+                                '\$${product.price.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              Text(
+                                product.description,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[600],
+                                ),
+                                maxLines:1, // Limit description to 3 lines
+                                overflow: TextOverflow.ellipsis, // Ellipsis for overflow
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 );
